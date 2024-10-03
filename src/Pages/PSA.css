@@ -1,0 +1,51 @@
+.psa-container {
+    height: 100vh;
+    padding: 20px;
+    text-align: center;
+    background-color: #05071C; /* Dark background color */
+    color: white; /* Text color */
+}
+
+.psa-title {
+    font-size: 2em;
+    color: #CBACF9; /* Title color */
+}
+
+.psa-description {
+    margin-bottom: 20px;
+}
+
+.process-inputs {
+    margin: 20px 0;
+}
+
+.process-inputs input {
+    margin: 0 5px;
+    padding: 10px;
+    border: 1px solid #CBACF9; /* Input border color */
+    border-radius: 5px; /* Rounded corners for inputs */
+}
+
+.process-inputs button {
+    padding: 10px 15px;
+    background-color: #CBACF9; /* Button background color */
+    color: #05071C; /* Button text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners for button */
+    cursor: pointer; /* Pointer cursor for button */
+}
+
+.psa-table {
+    margin: 20px auto;
+    border-collapse: collapse; /* Merge borders */
+    width: 80%; /* Set table width */
+}
+
+.psa-table th, .psa-table td {
+    border: 1px solid #CBACF9; /* Border color */
+    padding: 10px; /* Padding for cells */
+}
+
+.error-message {
+    color: red; /* Error message color */
+}

@@ -1,0 +1,54 @@
+.home {
+    background-color: #05071C; /* Dark background */
+    overflow: hidden; /* Ensure no overflow occurs */
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+    margin: 0; /* Remove any margins */
+    padding: 20px; /* Add some padding */
+    box-sizing: border-box; /* Include padding in width/height calculation */
+}
+
+.custom-card {
+    border: 2px solid #CBACF9; /* Border color */
+    border-radius: 15px; /* Rounded corners */
+    background-color: #05071C; /* Card background color */
+    color: white; /* Default text color */
+    padding: 10px; /* Reduced padding for shorter height */
+    height: 250px; /* Set a fixed height for cards */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    transition: transform 0.3s; /* Smooth transition */
+}
+
+.custom-card:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+.custom-title {
+    color: #CBACF9; /* Title color */
+    font-size: 1.5em; /* Title font size */
+    margin-bottom: 10px; /* Space between title and description */
+}
+
+.card-description {
+    color: white; /* Description color */
+    line-height: 1.5; /* Improve readability */
+    overflow: hidden; /* Prevent overflow of text */
+    max-height: 100px; /* Limit height of description */
+}
+
+/* Styles for the heading and description */
+h1 {
+    color: #CBACF9; /* Heading color */
+    font-size: 2.5em; /* Heading font size */
+    margin-bottom: 20px; /* Space below heading */
+}
+
+p {
+    color: #ffffff; /* Description color */
+    font-size: 1.1em; /* Description font size */
+    margin-bottom: 30px; /* Space below description */
+    line-height: 1.6; /* Improve readability */
+    max-width: 800px; /* Optional: Limit the width for better readability */
+    margin-left: auto; /* Center alignment */
+    margin-right: auto; /* Center alignment */
+}

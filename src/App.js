@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './Pages/Home';
+import FCFS from './Pages/FCFS';
+import Navbar from './components/Navbar';
+import SJF from './Pages/SJF';
+import PSA from './Pages/PSA';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import RR from './Pages/RR';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <Navbar />
+            <div className="App">
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/fcfs" element={<FCFS />} />
+                    <Route path="/psa" element={<PSA />} />
+                    <Route path="/sjf" element={<SJF />} />
+                    <Route path="/rr" element={<RR />} />
+                </Routes>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
