@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './SJF.css';
+import ToggleComponent from '../components/ToggleComponent';
 
 const SJF = () => {
     const [processes, setProcesses] = useState([]);
@@ -111,60 +112,59 @@ const SJF = () => {
             <p className="sjf-description">
                 SJF is a CPU scheduling algorithm where the process with the smallest burst time is executed first.
             </p>
-            
-            <div className="toggle-container" onClick={handleToggle}>
-                <span className="toggle-label non-preemptive">Non-Preemptive</span>
-                <div className={`toggle-button ${isPreemptive ? 'active' : ''}`}>
-                    <div className="toggle-circle"></div>
-                </div>
-                <span className="toggle-label preemptive">Preemptive</span>
-            </div>
-            
+
+            <ToggleComponent />
+
             <div className="process-inputs">
-                <input 
-                    type="text" 
-                    placeholder="Process ID" 
-                    value={processId} 
-                    onChange={e => setProcessId(e.target.value)} 
+                <input
+                    type="text"
+                    placeholder="Process ID"
+                    value={processId}
+                    onChange={e => setProcessId(e.target.value)}
                 />
-                <input 
-                    type="number" 
-                    placeholder="Arrival Time" 
-                    value={arrivalTime} 
-                    onChange={e => setArrivalTime(e.target.value)} 
+                <input
+                    type="number"
+                    placeholder="Arrival Time"
+                    value={arrivalTime}
+                    onChange={e => setArrivalTime(e.target.value)}
                 />
-                <input 
-                    type="number" 
-                    placeholder="Burst Time" 
-                    value={burstTime} 
-                    onChange={e => setBurstTime(e.target.value)} 
+                <input
+                    type="number"
+                    placeholder="Burst Time"
+                    value={burstTime}
+                    onChange={e => setBurstTime(e.target.value)}
                 />
                 <button onClick={handleAddProcess}>Add Process</button>
             </div>
-            
-            {error && <p className="error-message">{error}</p>}
-            
-            <table className="sjf-table">
-                <thead>
-                    <tr>
-                        <th>Process ID</th>
-                        <th>Arrival Time</th>
-                        <th>Burst Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {processes.map((process, index) => (
-                        <tr key={index}>
-                            <td>{process.processId}</td>
-                            <td>{process.arrivalTime}</td>
-                            <td>{process.burstTime}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
 
-            <h2>Gantt Chart</h2>
-            <div className="gantt-chart">
+            {error && <p className="error-message">{error}</p>}
+
+
+            <div className="sjf-table-container">
+                <div className="table-wrapper">
+                    <table className="sjf-table">
+                        <thead>
+                            <tr>
+                                <th>Process ID</th>
+                                <th>Arrival Time</th>
+                                <th>Burst Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {processes.map((process, index) => (
+                                <tr key={index}>
+                                    <td>{process.processId}</td>
+                                    <td>{process.arrivalTime}</td>
+                                    <td>{process.burstTime}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h2 className="mt-5">Gantt Chart</h2>
+            <div className="gantt-chart1">
                 <div className="gantt-header">
                     <span>Time (seconds):</span>
                     {calculateGanttChart().map((entry, index) => (
@@ -179,9 +179,9 @@ const SJF = () => {
                 <div className="gantt-header">
                     <span>Process Execution:</span>
                 </div>
-                <div className="gantt-processes">
+                <div className="gantt-processes1">
                     {calculateGanttChart().map((entry, index) => (
-                        <div key={index} className="gantt-entry">
+                        <div key={index} className="gantt-entry1">
                             <span>Process {entry.processId}: </span>
                             <span>{entry.start} - {entry.end}</span>
                         </div>

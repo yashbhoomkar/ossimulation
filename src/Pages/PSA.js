@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './PSA.css';
+import './SJF.css';
+import './FCFS.css';
 
 const PSA = () => {
     const [processes, setProcesses] = useState([]);
@@ -75,77 +77,81 @@ const PSA = () => {
             <p className="psa-description">
                 This scheduling algorithm assigns the CPU to the process with the highest priority.
             </p>
-            
+
             <div className="process-inputs">
-                <input 
-                    type="text" 
-                    placeholder="Process ID" 
-                    value={processId} 
-                    onChange={e => setProcessId(e.target.value)} 
+                <input
+                    type="text"
+                    placeholder="Process ID"
+                    value={processId}
+                    onChange={e => setProcessId(e.target.value)}
                 />
-                <input 
-                    type="number" 
-                    placeholder="Arrival Time" 
-                    value={arrivalTime} 
-                    onChange={e => setArrivalTime(e.target.value)} 
+                <input
+                    type="number"
+                    placeholder="Arrival Time"
+                    value={arrivalTime}
+                    onChange={e => setArrivalTime(e.target.value)}
                 />
-                <input 
-                    type="number" 
-                    placeholder="Burst Time" 
-                    value={burstTime} 
-                    onChange={e => setBurstTime(e.target.value)} 
+                <input
+                    type="number"
+                    placeholder="Burst Time"
+                    value={burstTime}
+                    onChange={e => setBurstTime(e.target.value)}
                 />
-                <input 
-                    type="number" 
-                    placeholder="Priority" 
-                    value={priority} 
-                    onChange={e => setPriority(e.target.value)} 
+                <input
+                    type="number"
+                    placeholder="Priority"
+                    value={priority}
+                    onChange={e => setPriority(e.target.value)}
                 />
                 <button onClick={handleAddProcess}>Add Process</button>
             </div>
 
             {error && <p className="error-message">{error}</p>}
-            
-            <table className="psa-table">
-                <thead>
-                    <tr>
-                        <th>Process ID</th>
-                        <th>Arrival Time</th>
-                        <th>Burst Time</th>
-                        <th>Priority</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {processes.map((proc, index) => (
-                        <tr key={index}>
-                            <td>{proc.processId}</td>
-                            <td>{proc.arrivalTime}</td>
-                            <td>{proc.burstTime}</td>
-                            <td>{proc.priority}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
 
-            <h2>Gantt Chart</h2>
-            <div className="gantt-chart">
+
+
+            <div className="sjf-table-container">
+                <div className="table-wrapper">
+                    <table className="sjf-table">
+                        <thead>
+                            <tr>
+                                <th>Process ID</th>
+                                <th>Arrival Time</th>
+                                <th>Burst Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {processes.map((process, index) => (
+                                <tr key={index}>
+                                    <td>{process.processId}</td>
+                                    <td>{process.arrivalTime}</td>
+                                    <td>{process.burstTime}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h2 className="mt-5">Gantt Chart</h2>
+            <div className="gantt-chart1">
                 <div className="gantt-header">
                     <span>Time (seconds):</span>
-                    {ganttChart.map((entry, index) => (
+                    {calculateGanttChart().map((entry, index) => (
                         <span key={index} className="gantt-time">{entry.start}</span>
                     ))}
-                    {ganttChart.length > 0 && (
+                    {processes.length > 0 && (
                         <span className="gantt-time">
-                            {ganttChart[ganttChart.length - 1].end}
+                            {calculateGanttChart()[calculateGanttChart().length - 1].end}
                         </span>
                     )}
                 </div>
                 <div className="gantt-header">
                     <span>Process Execution:</span>
                 </div>
-                <div className="gantt-processes">
-                    {ganttChart.map((entry, index) => (
-                        <div key={index} className="gantt-entry">
+                <div className="gantt-processes1">
+                    {calculateGanttChart().map((entry, index) => (
+                        <div key={index} className="gantt-entry1">
                             <span>Process {entry.processId}: </span>
                             <span>{entry.start} - {entry.end}</span>
                         </div>
@@ -153,7 +159,7 @@ const PSA = () => {
                 </div>
             </div>
 
-            <button onClick={handleCalculateGanttChart}>Calculate Gantt Chart</button>
+            {/* <button onClick={handleCalculateGanttChart}>Calculate Gantt Chart</button> */}
         </div>
     );
 };

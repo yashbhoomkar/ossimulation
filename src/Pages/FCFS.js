@@ -54,67 +54,62 @@ const FCFS = () => {
 
     return (
         <div className="fcfs-container">
-            <h1 className="fcfs-title text-center">First-Come, First-Served (FCFS) Scheduling</h1>
+            <h1 className="fcfs-title">First-Come, First-Served (FCFS) Scheduling</h1>
             <p className="fcfs-description text-center">
                 FCFS is a CPU scheduling algorithm where the process that arrives first gets executed first.
             </p>
-            
-            <div className="process-inputs row">
-                <div className="col-md-3">
-                    <input 
-                        type="text" 
-                        className="form-control" 
-                        placeholder="Process ID" 
-                        value={processId} 
-                        onChange={e => setProcessId(e.target.value)} 
-                    />
-                </div>
-                <div className="col-md-3">
-                    <input 
-                        type="number" 
-                        className="form-control" 
-                        placeholder="Arrival Time" 
-                        value={arrivalTime} 
-                        onChange={e => setArrivalTime(e.target.value)} 
-                    />
-                </div>
-                <div className="col-md-3">
-                    <input 
-                        type="number" 
-                        className="form-control" 
-                        placeholder="Burst Time" 
-                        value={burstTime} 
-                        onChange={e => setBurstTime(e.target.value)} 
-                    />
-                </div>
-                <div className="col-md-3">
-                    <button className="btn btn-primary" onClick={handleAddProcess}>Add Process</button>
+
+            <div className="process-inputs">
+                <input
+                    type="text"
+                    placeholder="Process ID"
+                    value={processId}
+                    onChange={e => setProcessId(e.target.value)}
+                />
+                <input
+                    type="number"
+                    placeholder="Arrival Time"
+                    value={arrivalTime}
+                    onChange={e => setArrivalTime(e.target.value)}
+                />
+                <input
+                    type="number"
+                    placeholder="Burst Time"
+                    value={burstTime}
+                    onChange={e => setBurstTime(e.target.value)}
+                />
+                <button onClick={handleAddProcess}>Add Process</button>
+            </div>
+
+            {error && <p className="error-message text-danger text-center mt-3">{error}</p>}
+
+
+
+            <div className="sjf-table-container">
+                <div className="table-wrapper">
+                    <table className="sjf-table">
+                        <thead>
+                            <tr>
+                                <th>Process ID</th>
+                                <th>Arrival Time</th>
+                                <th>Burst Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {processes.map((process, index) => (
+                                <tr key={index}>
+                                    <td>{process.processId}</td>
+                                    <td>{process.arrivalTime}</td>
+                                    <td>{process.burstTime}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            
-            {error && <p className="error-message text-danger text-center mt-3">{error}</p>}
-            
-            <table className="fcfs-table table table-bordered table-striped mt-4">
-                <thead>
-                    <tr>
-                        <th>Process ID</th>
-                        <th>Arrival Time</th>
-                        <th>Burst Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {processes.map((process, index) => (
-                        <tr key={index}>
-                            <td>{process.processId}</td>
-                            <td>{process.arrivalTime}</td>
-                            <td>{process.burstTime}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
 
             <h2 className="mt-5">Gantt Chart</h2>
-            <div className="gantt-chart">
+            <div className="gantt-chart1">
                 <div className="gantt-header">
                     <span>Time (seconds):</span>
                     {calculateGanttChart().map((entry, index) => (
@@ -129,9 +124,9 @@ const FCFS = () => {
                 <div className="gantt-header">
                     <span>Process Execution:</span>
                 </div>
-                <div className="gantt-processes">
+                <div className="gantt-processes1">
                     {calculateGanttChart().map((entry, index) => (
-                        <div key={index} className="gantt-entry">
+                        <div key={index} className="gantt-entry1">
                             <span>Process {entry.processId}: </span>
                             <span>{entry.start} - {entry.end}</span>
                         </div>
