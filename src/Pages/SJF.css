@@ -2,15 +2,53 @@
     height: 100vh;
     padding: 20px;
     text-align: center;
-    background-color: #05071C; /* Dark background color */
-    color: white; /* Text color */
-    overflow-y: hidden;
+    background-color: #05071C;
+    /* Dark background color */
+    color: white;
+    /* Text color */
+    /* overflow-y: hidden; */
     overflow-x: hidden;
 }
 
 .sjf-title {
+    padding-top: 5px;
     font-size: 2em;
-    color: #CBACF9; /* Title color */
+    color: #CBACF9;
+    /* Title color */
+}
+
+.table-wrapper {
+    max-height: 165px;
+    /* Adjust this value to the height you want */
+    /* max-width: 95%; Adjust this value to the height you want */
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    /* Optional: Adds a border to the scrollable area */
+}
+
+.sjf-table {
+    width: 100%;
+    border-collapse: collapse;
+    /* border-radius: 12px; */
+}
+
+.sjf-table th,
+.sjf-table td {
+    border: 1px solid #CBACF9;
+    color: white;
+    padding: 8px;
+    text-align: center;
+}
+
+.sjf-table th {
+    background-color: #05071c;
+    position: sticky;
+    top: 0;
+    /* Makes the header sticky when scrolling */
+}
+
+.sjf-table-container {
+    margin-top: 20px;
 }
 
 .sjf-description {
@@ -18,53 +56,65 @@
 }
 
 .toggle-container {
-    display: flex;
+    display: inline-block;
     align-items: center;
     position: relative;
     margin: 20px 0;
-    cursor: pointer; /* Change cursor to pointer */
+    cursor: pointer;
+    /* Change cursor to pointer */
 }
 
 .toggle-button {
-    width: 60px; /* Adjust the width of the toggle */
-    height: 30px; /* Adjust the height of the toggle */
-    background-color: #333; /* Background color of the toggle */
-    border-radius: 30px; /* Round shape */
+    width: 60px;
+    /* Adjust the width of the toggle */
+    height: 30px;
+    /* Adjust the height of the toggle */
+    background-color: #333;
+    /* Background color of the toggle */
+    border-radius: 30px;
+    border: 1px solid #CBACF9;
+    /* Round shape */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5px; /* Space inside the toggle */
-    transition: background-color 0.3s ease; /* Transition for the background */
+    margin: 20px;
+    padding-left: 2px;
+    padding-right: 2px;
+    /* Space inside the toggle */
+    transition: background-color 0.3s ease;
+    /* Transition for the background */
 }
 
 .toggle-circle {
-    width: 24px; /* Size of the circle */
-    height: 24px; /* Size of the circle */
-    background-color: #CBACF9; /* Color of the circle */
-    border-radius: 50%; /* Round shape */
-    transition: transform 0.3s ease; /* Smooth transition */
-}
-
-.toggle-button.active {
-    background-color: #CBACF9; /* Background color when active */
+    width: 24px;
+    /* Size of the circle */
+    height: 24px;
+    /* Size of the circle */
+    background-color: #CBACF9;
+    /* Color of the circle */
+    border-radius: 50%;
+    /* Round shape */
+    transition: transform 0.3s ease;
+    /* Smooth transition */
 }
 
 .toggle-button.active .toggle-circle {
-    transform: translateX(30px); /* Move circle to the right */
+    transform: translateX(30px);
+    /* Move circle to the right */
 }
+
+.toggle-button.active {
+    text-decoration: underline;
+}
+
 
 .toggle-label {
-    color: white; /* Text color for labels */
-    font-size: 1em; /* Size of the text */
-    margin: 0 10px; /* Space around labels */
-}
-
-.toggle-label.non-preemptive {
-    order: 1; /* Order for Non-Preemptive label */
-}
-
-.toggle-label.preemptive {
-    order: 2; /* Order for Preemptive label */
+    color: white;
+    /* Text color for labels */
+    font-size: 1em;
+    /* Size of the text */
+    margin: 0 10px;
+    /* Space around labels */
 }
 
 .process-inputs {
@@ -74,48 +124,52 @@
 .process-inputs input {
     margin: 0 5px;
     padding: 10px;
-    border: 1px solid #CBACF9; /* Input border color */
-    border-radius: 5px; /* Rounded corners for inputs */
+    border: 1px solid #CBACF9;
+    /* Input border color */
+    border-radius: 5px;
+    /* Rounded corners for inputs */
     color: white;
 }
 
 .process-inputs button {
     padding: 10px 15px;
-    background-color: #CBACF9; /* Button background color */
-    color: #05071C; /* Button text color */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners for button */
-    cursor: pointer; /* Pointer cursor for button */
-}
-
-.sjf-table {
-    margin: 20px auto;
-    border-collapse: collapse; /* Merge borders */
-    width: 80%; /* Set table width */
-}
-
-.sjf-table th,
-.sjf-table td {
-    border: 1px solid #CBACF9; /* Border color */
-    padding: 10px; /* Padding for cells */
-    color: white;
+    background-color: #CBACF9;
+    /* Button background color */
+    color: #05071C;
+    /* Button text color */
+    border: none;
+    /* No border */
+    border-radius: 5px;
+    /* Rounded corners for button */
+    cursor: pointer;
+    /* Pointer cursor for button */
 }
 
 .error-message {
-    color: red; /* Error message color */
+    color: red;
+    /* Error message color */
 }
 
 .gantt-chart {
     margin-top: 20px;
-    background-color: #333; /* Gantt chart background color */
+    background-color: #333;
+    /* Gantt chart background color */
     padding: 10px;
-    border-radius: 10px; /* Rounded corners for Gantt chart */
+    border-radius: 10px;
+    /* Rounded corners for Gantt chart */
 }
 
 .gantt-header {
     display: flex;
-    justify-content: center; /* Center align */
+    justify-content: center;
+    /* Center align */
     margin-bottom: 10px;
+}
+
+.gantt-processes {
+    display: flex;
+    width: 80%;
+
 }
 
 .gantt-time {
@@ -123,6 +177,50 @@
 }
 
 .gantt-entry {
+    width: 30%;
     margin: 5px 0;
-    color: white; /* Gantt entry text color */
+    color: white;
+    /* Gantt entry text color */
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.margin1 {
+    margin: 20 px;
+}
+
+.padding1 {
+    padding: 20px;
+}
+
+.center {
+    /* width: 100%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.toggle-button.active~.non-preemptive {
+    text-decoration: underline;
+}
+
+.toggle-button.active.premptive {
+    text-decoration: none;
+}
+
+.premptive {
+    text-decoration: underline;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+* {
+    /* border: 2px solid red; */
 }

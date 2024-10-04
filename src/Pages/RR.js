@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './RR.css';
+import './SJF.css';
+import './FCFS.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const RR = () => {
@@ -65,76 +67,110 @@ const RR = () => {
     };
 
     return (
-        <div className="rr-container">
-            <h1 className="rr-title text-center">Round Robin (RR) Scheduling</h1>
-            <p className="rr-description text-center">
+        // <div className="rr-container">
+        <div className="psa-container">
+            <h1 className="psa-title">Round Robin (RR) Scheduling</h1>
+            <p className="psa-description">
                 RR is a CPU scheduling algorithm where each process is assigned a fixed time slot (quantum) in a cyclic order.
             </p>
-            
+
+            <div className="process-inputs">
+                <input
+                    type="text"
+                    placeholder="Process ID"
+                    value={processId}
+                    onChange={e => setProcessId(e.target.value)}
+                />
+                <input
+                    type="number"
+                    placeholder="Arrival Time"
+                    value={arrivalTime}
+                    onChange={e => setArrivalTime(e.target.value)}
+                />
+                <input
+                    type="number"
+                    placeholder="Burst Time"
+                    value={burstTime}
+                    onChange={e => setBurstTime(e.target.value)}
+                />
+                <input
+                    type="number"
+                    placeholder="Quantum"
+                    value={quantum}
+                    onChange={e => setQuantum(e.target.value)}
+                />
+                <button onClick={handleAddProcess}>Add Process</button>
+            </div>
+
+            {/* 
             <div className="process-inputs row">
                 <div className="col-md-3">
-                    <input 
-                        type="text" 
-                        className="form-control" 
-                        placeholder="Process ID" 
-                        value={processId} 
-                        onChange={e => setProcessId(e.target.value)} 
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Process ID"
+                        value={processId}
+                        onChange={e => setProcessId(e.target.value)}
                     />
                 </div>
                 <div className="col-md-3">
-                    <input 
-                        type="number" 
-                        className="form-control" 
-                        placeholder="Arrival Time" 
-                        value={arrivalTime} 
-                        onChange={e => setArrivalTime(e.target.value)} 
+                    <input
+                        type="number"
+                        className="form-control"
+                        placeholder="Arrival Time"
+                        value={arrivalTime}
+                        onChange={e => setArrivalTime(e.target.value)}
                     />
                 </div>
                 <div className="col-md-3">
-                    <input 
-                        type="number" 
-                        className="form-control" 
-                        placeholder="Burst Time" 
-                        value={burstTime} 
-                        onChange={e => setBurstTime(e.target.value)} 
+                    <input
+                        type="number"
+                        className="form-control"
+                        placeholder="Burst Time"
+                        value={burstTime}
+                        onChange={e => setBurstTime(e.target.value)}
                     />
                 </div>
                 <div className="col-md-3">
-                    <input 
-                        type="number" 
-                        className="form-control" 
-                        placeholder="Quantum" 
-                        value={quantum} 
-                        onChange={e => setQuantum(e.target.value)} 
+                    <input
+                        type="number"
+                        className="form-control"
+                        placeholder="Quantum"
+                        value={quantum}
+                        onChange={e => setQuantum(e.target.value)}
                     />
                 </div>
             </div>
-            
+ */}
             {error && <p className="error-message text-danger text-center mt-3">{error}</p>}
-            
-            <table className="rr-table table table-bordered table-striped mt-4">
-                <thead>
-                    <tr>
-                        <th>Process ID</th>
-                        <th>Arrival Time</th>
-                        <th>Burst Time</th>
-                        <th>Remaining Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {processes.map((process, index) => (
-                        <tr key={index}>
-                            <td>{process.processId}</td>
-                            <td>{process.arrivalTime}</td>
-                            <td>{process.burstTime}</td>
-                            <td>{process.remainingTime}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+
+            <div className="sjf-table-container">
+                <div className="table-wrapper">
+                    <table className="sjf-table">
+                        <thead>
+                            <tr>
+                                <th>Process ID</th>
+                                <th>Arrival Time</th>
+                                <th>Burst Time</th>
+                                <th>Remaining Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {processes.map((process, index) => (
+                                <tr key={index}>
+                                    <td>{process.processId}</td>
+                                    <td>{process.arrivalTime}</td>
+                                    <td>{process.burstTime}</td>
+                                    <td>{process.remainingTime}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
             <h2 className="mt-5">Gantt Chart</h2>
-            <div className="gantt-chart">
+            <div className="gantt-chart1">
                 <div className="gantt-header">
                     <span>Time (seconds):</span>
                     {calculateGanttChart().map((entry, index) => (
@@ -149,9 +185,9 @@ const RR = () => {
                 <div className="gantt-header">
                     <span>Process Execution:</span>
                 </div>
-                <div className="gantt-processes">
+                <div className="gantt-processes1">
                     {calculateGanttChart().map((entry, index) => (
-                        <div key={index} className="gantt-entry">
+                        <div key={index} className="gantt-entry1">
                             <span>Process {entry.processId}: </span>
                             <span>{entry.start} - {entry.end}</span>
                         </div>
