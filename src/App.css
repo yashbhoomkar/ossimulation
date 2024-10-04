@@ -15,6 +15,3 @@ body {
   flex-direction: column;
 }
 
-.navbar {
-  flex-shrink: 0;
-}
