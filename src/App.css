@@ -3,7 +3,8 @@ body {
   padding: 0;
   background-color: #05071C; /* Keep the custom background color */
   height: 100vh;
-  width: 150vw;
+  width: 100vw;
+  overflow-x: hidden;
   
 }
 
