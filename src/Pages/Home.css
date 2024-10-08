@@ -1,54 +1,84 @@
+/* Overall Home Styles */
 .home {
-    background-color: #05071C; /* Dark background */
-    overflow: hidden; /* Ensure no overflow occurs */
-    width: 100vw; /* Full width */
-    height: 100vh; /* Full height */
-    margin: 0; /* Remove any margins */
-    padding: 20px; /* Add some padding */
-    box-sizing: border-box; /* Include padding in width/height calculation */
+    background-color: #05071C; 
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto; 
+
 }
 
+/* Card Styles */
 .custom-card {
-    border: 2px solid #CBACF9; /* Border color */
-    border-radius: 15px; /* Rounded corners */
-    background-color: #05071C; /* Card background color */
-    color: white; /* Default text color */
-    padding: 10px; /* Reduced padding for shorter height */
-    height: 250px; /* Set a fixed height for cards */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    transition: transform 0.3s; /* Smooth transition */
+    border: 2px solid #CBACF9; 
+    border-radius: 15px; 
+    background-color: #05071C; 
+    color: white;
+    padding: 20px;
+    height: 300px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between; 
+    position: relative; 
 }
 
+/* Card hover effect */
 .custom-card:hover {
-    transform: scale(1.05); /* Scale effect on hover */
+    transform: scale(1.05);
 }
-
+/* Title Styles */
 .custom-title {
-    color: #CBACF9; /* Title color */
-    font-size: 1.5em; /* Title font size */
-    margin-bottom: 10px; /* Space between title and description */
+    color: #CBACF9; 
+    font-size: 1.5em; 
+    margin-bottom: 10px; 
 }
 
+/* Description Styles */
 .card-description {
-    color: white; /* Description color */
-    line-height: 1.5; /* Improve readability */
-    overflow: hidden; /* Prevent overflow of text */
-    max-height: 100px; /* Limit height of description */
+    color: white;
+    line-height: 1.5; 
+    overflow: hidden;
+    flex-grow: 1; 
+    margin-bottom: 10px;
 }
 
 /* Styles for the heading and description */
 h1 {
-    color: #CBACF9; /* Heading color */
-    font-size: 2.5em; /* Heading font size */
-    margin-bottom: 20px; /* Space below heading */
+    color: #CBACF9;
+    font-size: 2.5em; 
+    margin-bottom: 20px; 
+    background: linear-gradient(to bottom, #CBACF9, #A29BFE); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    text-align: center;
+    font-weight: bold; 
 }
 
+/* Paragraph Styles */
 p {
-    color: #ffffff; /* Description color */
-    font-size: 1.1em; /* Description font size */
-    margin-bottom: 30px; /* Space below description */
-    line-height: 1.6; /* Improve readability */
-    max-width: 800px; /* Optional: Limit the width for better readability */
-    margin-left: auto; /* Center alignment */
-    margin-right: auto; /* Center alignment */
+    color: #A3BFFA;
+    font-size: 1.2em; 
+    margin-bottom: 25px; 
+    line-height: 1.7;
+    max-width: 800px; 
+    margin-left: auto;
+    margin-right: auto; 
+    text-align: center; 
+    opacity: 0.85;
+}
+
+/* Arrow Styles */
+.arrow-svg {
+    width: 24px; 
+    height: 24px; 
+    fill: #CBACF9; 
+    position: absolute; 
+    top: 35px; 
+    right: 26px; 
+    transform: rotate(270deg); 
 }

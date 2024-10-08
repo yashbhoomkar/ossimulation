@@ -34,43 +34,56 @@ const Home = () => {
                 Effective scheduling is crucial for optimizing CPU utilization and improving overall system performance. 
                 Various algorithms, such as FCFS, SJF, Priority Scheduling, and Round Robin, are used to manage process execution efficiently.
             </p>
-            <div className="row no-gutters">
-                <div className="col-md-6">
-                    <div className="row">
-                        <div className="col mb-4">
-                            <a href={cards[0].link} className="card h-100 text-decoration-none custom-card">
-                                <h2 className="card-title custom-title">{cards[0].title}</h2>
-                                <p className="card-description">{cards[0].description}</p>
-                            </a>
+            <div className="row no-gutters mb-4">
+                <div className="col-md-6 mb-4">
+                    <a href={cards[0].link} className="card h-100 text-decoration-none custom-card">
+                        <div className="card-header">
+                            <h2 className="card-title custom-title">{cards[0].title}</h2>
+                            <svg className="arrow-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0a.5.5 0 0 1 .5.5v10.793l2.146-2.147a.5.5 0 1 1 .707.707l-3 3a.5.5 0 0 1-.707 0l-3-3a.5.5 0 0 1 .707-.707L7.5 11.293V.5A.5.5 0 0 1 8 0z"/>
+                            </svg>
                         </div>
-                        <div className="col mb-4">
-                            <a href={cards[1].link} className="card h-100 text-decoration-none custom-card">
-                                <h2 className="card-title custom-title">{cards[1].title}</h2>
-                                <p className="card-description">{cards[1].description}</p>
-                            </a>
-                        </div>
-                    </div>
+                        <p className="card-description">{cards[0].description}</p>
+                    </a>
                 </div>
-                <div className="col-md-6">
-                    <div className="row">
-                        <div className="col mb-4">
-                            <a href={cards[2].link} className="card h-100 text-decoration-none custom-card">
-                                <h2 className="card-title custom-title">{cards[2].title}</h2>
-                                <p className="card-description">{cards[2].description}</p>
-                            </a>
+                <div className="col-md-6 mb-4">
+                    <a href={cards[1].link} className="card h-100 text-decoration-none custom-card">
+                        <div className="card-header">
+                            <h2 className="card-title custom-title">{cards[1].title}</h2>
+                            <svg className="arrow-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0a.5.5 0 0 1 .5.5v10.793l2.146-2.147a.5.5 0 1 1 .707.707l-3 3a.5.5 0 0 1-.707 0l-3-3a.5.5 0 0 1 .707-.707L7.5 11.293V.5A.5.5 0 0 1 8 0z"/>
+                            </svg>
                         </div>
-                        <div className="col mb-4">
-                            <a href={cards[3].link} className="card h-100 text-decoration-none custom-card">
-                                <h2 className="card-title custom-title">{cards[3].title}</h2>
-                                <p className="card-description">{cards[3].description}</p>
-                            </a>
+                        <p className="card-description">{cards[1].description}</p>
+                    </a>
+                </div>
+            </div>
+            <div className="row no-gutters">
+                <div className="col-md-6 mb-4">
+                    <a href={cards[2].link} className="card h-100 text-decoration-none custom-card">
+                        <div className="card-header">
+                            <h2 className="card-title custom-title">{cards[2].title}</h2>
+                            <svg className="arrow-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0a.5.5 0 0 1 .5.5v10.793l2.146-2.147a.5.5 0 1 1 .707.707l-3 3a.5.5 0 0 1-.707 0l-3-3a.5.5 0 0 1 .707-.707L7.5 11.293V.5A.5.5 0 0 1 8 0z"/>
+                            </svg>
                         </div>
-                    </div>
+                        <p className="card-description">{cards[2].description}</p>
+                    </a>
+                </div>
+                <div className="col-md-6 mb-4">
+                    <a href={cards[3].link} className="card h-100 text-decoration-none custom-card">
+                        <div className="card-header">
+                            <h2 className="card-title custom-title">{cards[3].title}</h2>
+                            <svg className="arrow-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0a.5.5 0 0 1 .5.5v10.793l2.146-2.147a.5.5 0 1 1 .707.707l-3 3a.5.5 0 0 1-.707 0l-3-3a.5.5 0 0 1 .707-.707L7.5 11.293V.5A.5.5 0 0 1 8 0z"/>
+                            </svg>
+                        </div>
+                        <p className="card-description">{cards[3].description}</p>
+                    </a>
                 </div>
             </div>
         </div>
     );
 };
-
 
 export default Home;
